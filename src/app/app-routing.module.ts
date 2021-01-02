@@ -1,15 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-/*import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-/* import { LoadingBarModule } from '@ngx-loading-bar/core';
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client'; */
-import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './includes/header/header.component';
 import { PromiseComponent } from './promise/promise.component';
 import { ObservableComponent } from './observable/observable.component';
 import { ListComponent } from './observable/list/list.component';
@@ -26,9 +18,6 @@ import { TakeComponent } from './observable/take/take.component';
 import { RetryComponent } from './observable/retry/retry.component';
 import { DebouncetimeComponent } from './observable/debouncetime/debouncetime.component';
 import { SubjectComponent } from './observable/subject/subject.component';
-import { Comp1Component } from './comps/comp1/comp1.component';
-import { Comp2Component } from './comps/comp2/comp2.component';
-import { Comp3Component } from './comps/comp3/comp3.component';
 import { ReplaySubjectComponent } from './observable/replay-subject/replay-subject.component';
 import { AsyncSubjectComponent } from './observable/async-subject/async-subject.component';
 import { ConcatComponent } from './observable/concat/concat.component';
@@ -44,55 +33,52 @@ import { ShareReplayComponent } from './observable/share-replay/share-replay.com
 import { CombineLatestComponent } from './observable/combine-latest/combine-latest.component';
 import { ZipForkJoinComponent } from './observable/zip-fork-join/zip-fork-join.component';
 
+
+const routes: Routes = [
+    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'promise', component: PromiseComponent },
+    {
+        path: 'observable', component: ObservableComponent,
+        children: [
+            { path: '', component: ListComponent },
+            { path: 'fromEvent', component: FromEventComponent },
+            { path: 'interval', component: IntervalComponent },
+            { path: 'of-from', component: OfFromComponent },
+            { path: 'to-array', component: ToArrayComponent },
+            { path: 'custom', component: CustomComponent },
+            { path: 'map', component: MapComponent },
+            { path: 'pluck', component: PluckComponent },
+            { path: 'filter', component: FilterComponent },
+            { path: 'tap', component: TapComponent },
+            { path: 'take', component: TakeComponent },
+            { path: 'retry', component: RetryComponent },
+            { path: 'debouncetime', component: DebouncetimeComponent },
+            { path: 'subject', component: SubjectComponent },
+            { path: 'replay-subject', component: ReplaySubjectComponent },
+            { path: 'async-subject', component: AsyncSubjectComponent },
+            { path: 'concat', component: ConcatComponent },
+            { path: 'merge', component: MergeComponent },
+            { path: 'mergemap', component: MergemapComponent },
+            { path: 'concatmap', component: ConcatmapComponent },
+            { path: 'concat2', component: Concat2Component },
+            { path: 'switchMap', component: SwitchMapComponent },
+            { path: 'switchMap-2', component: SwitchMap2Component },
+            { path: 'switchMap-finalVersion', component: SwitchMapFinalExampleComponent },
+            { path: 'exhaustMap', component: ExhaustMapComponent },
+            { path: 'shareReplay', component: ShareReplayComponent },
+            { path: 'combineLatest', component: CombineLatestComponent },
+            { path: 'zip-forkjoin', component: ZipForkJoinComponent }
+        ]
+    },
+    {
+        path: '**',
+        redirectTo: 'promise'
+    }
+];
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    PromiseComponent,
-    ObservableComponent,
-    ListComponent,
-    FromEventComponent,
-    IntervalComponent,
-    OfFromComponent,
-    ToArrayComponent,
-    CustomComponent,
-    MapComponent,
-    PluckComponent,
-    FilterComponent,
-    TapComponent,
-    TakeComponent,
-    RetryComponent,
-    DebouncetimeComponent,
-    SubjectComponent,
-    Comp1Component,
-    Comp2Component,
-    Comp3Component,
-    ReplaySubjectComponent,
-    AsyncSubjectComponent,
-    ConcatComponent,
-    MergeComponent,
-    MergemapComponent,
-    ConcatmapComponent,
-    Concat2Component,
-    SwitchMapComponent,
-    SwitchMap2Component,
-    SwitchMapFinalExampleComponent,
-    ExhaustMapComponent,
-    ShareReplayComponent,
-    CombineLatestComponent,
-    ZipForkJoinComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-   /* BrowserAnimationsModule,
-    /* LoadingBarModule,
-    LoadingBarHttpClientModule, */
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppModule { }
+export class AppRoutingModule { }

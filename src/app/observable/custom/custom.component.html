@@ -1,0 +1,36 @@
+
+<div class="my-3 p-5">
+  <h2>create custom observable</h2>
+  <br>
+
+   <div class="row">
+
+     <div class="col-md-6">
+       <strong>Example - 01 (creating custom observable)</strong>
+       <hr>
+       <ul [ngClass]="techStatus == 'completed' ? 'completed' : techStatus =='error' ?  'error': ''"
+         class="techList" id="elContainer22"></ul>
+     </div>
+     <div class="col-md-6">
+       <strong>Example - 02 (custom Interval Observable)</strong>
+       <hr>
+       <ul  [ngClass]="techStatus22 == 'completed' ? 'completed' : techStatus22 =='error' ?  'error': ''"
+         class="techList"  id="elContainer33"></ul>
+     </div>
+     <br>
+     <div class="row">
+       <div class="col-md-12">
+         <strong>Example - 03 (Printing random names)</strong>
+         <p class="bg-light py-2 px-3 border rounded">
+           <strong>printing Random name: </strong>of('xxx','xxx','xxx'......)
+         </p>
+         <hr>
+         <p>Current Name: <strong >{{names}}</strong> </p>
+         <span class="badge"
+         [ngClass]="nameStatus == 'completed' ? 'badge-success' : nameStatus == 'error' ? 'badge-danger': 'badge-primary'"
+         >{{nameStatus == 'completed' ? 'Success--' : nameStatus == 'error' ? 'Error--': 'Running--'}}</span>
+       </div>
+     </div>
+
+   </div>
+</div>

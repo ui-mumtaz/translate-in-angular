@@ -1,0 +1,42 @@
+<div class="my-3 p-5">
+  <h2>CombineLatest & withLatestFrom</h2>
+  <br>
+
+  <div class="row">
+    <div class="col-md-3 pr-4">
+
+      <strong>Names</strong>
+      <hr>
+      <select class="form-control" #name>
+        <option *ngFor="let item of nameSource"
+                value="{{item}}">{{item}}</option>
+      </select>
+      <br>
+      <br>
+
+
+      <strong>Colors</strong>
+      <hr>
+      <select class="form-control" #color>
+        <option *ngFor="let item of colorSource"
+                value="{{item}}">{{item}}</option>
+      </select>
+
+    </div>
+    <div class="col-md-9 ml-auto ">
+      <strong>CombineLatest</strong>
+      <hr>
+      <div class="wrapper" id="elContainer11">
+      </div>
+
+
+      <strong>withLatestFrom</strong>
+      <hr>
+      <div class="wrapper" id="elContainer22">
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

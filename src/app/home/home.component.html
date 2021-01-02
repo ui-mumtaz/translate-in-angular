@@ -1,0 +1,7 @@
+<div class="container mt-4">
+  <label>Enter English:</label>
+  <input class="input" (input)="text = $event.target.value" />
+  <button class="btn btn-primary button rounded-0 mx-2" (click)="submit()">Translate!</button>
+
+  <h1>{{ translatedtext }}</h1>
+</div>
